@@ -1,13 +1,82 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+    background-color: black;
+    color: white;
 }
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+#heart {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    z-index: 1;
+    animation: beat 0.5s infinite
+  }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  @keyframes beat {
+      0%
+      {
+          transform: scale(.75);
+      }
+      100%{
+          transform: scale(1);
+      }
+  }
+  @keyframes beat2 {
+    0%
+    {
+        transform: scale(.85);
+    }
+    100%{
+        transform: scale(1);
+    }
 }
+  #heart:before,
+  #heart:after {
+    position: absolute;
+    content: "";
+    left: 100px;
+    top: 0;
+    width: 100px;
+    height: 160px;
+    background: #c73a8c;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  #heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+
+  #heartBackground {
+    position: absolute;
+    width: 200px;
+    height: 180px;
+    z-index: 0;
+    top: 38%;
+    animation: beat2 0.5s infinite
+  }
+  #heartBackground:before,
+  #heartBackground:after {
+    position: absolute;
+    content: "";
+    left: 100px;
+    top: -8px;
+    width: 110px;
+    height: 176px;
+    background: white;
+    border-radius: 65px 65px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  #heartBackground:after {
+    left: -10px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
